@@ -14,13 +14,12 @@ class App extends Component {
 
     this.state = {
       name: 'friend',
-      age: '',
-      gender: '',
-      heightft: '',
-      heightin: '',
-      weight: '',
-      activityLevel: '',
-      foodFrequency: '',
+      age: '19',
+      gender: 'M',
+      heightft: '5',
+      heightin: '10',
+      weight: '165',
+      activityLevel: '1',
       target: '',
       vegetarian: false,
       vegan: false,
@@ -47,12 +46,12 @@ class App extends Component {
 
     return (
       <div>
-        <ul>
+        {/* <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/Form">Form</Link></li>
             <li><Link to="/Recommendation">Recommendation</Link></li>
             <li><Link to="/MacronutrientDetails">MacronutrientDetails</Link></li>
-        </ul>
+        </ul> */}
 
         
         <Route 
@@ -63,7 +62,8 @@ class App extends Component {
           path="/Form" 
           render={() => <Form name={this.state.name} />}
         />
-        <Route path="/Recommendation" component={Recommendation} />
+        <Route path="/Recommendation" 
+        render={() => <Recommendation list={this.state}/>}/>
         <Route path="/MacronutrientDetails" component={MacronutrientDetails} />
       </div>
     );

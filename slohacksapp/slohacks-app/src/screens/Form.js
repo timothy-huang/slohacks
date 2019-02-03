@@ -8,7 +8,7 @@ import '../styles/Form.css';
 class Form extends Component {
 
   state = {
-      childAge: ''
+      childName: ''
   }
 
   handleChange = childName => event => {

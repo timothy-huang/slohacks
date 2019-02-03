@@ -1,4 +1,4 @@
-.App {
+.Home {
   text-align: center;
 }
 
@@ -9,7 +9,7 @@
 
 }
 
-.App-header {
+.Home-header {
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,17 @@
   color: white;
 }
 
-.App-link {
+.container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Home-link {
   color: #61dafb;
 }
 

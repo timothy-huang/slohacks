@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-class MacroNutrientDetails extends Component {
-
+class MacronutrientDetails extends Component {
+    render() {
+        return (
+            <div>
+                <h2>MacronutrientDetails</h2>
+            </div>
+        );
+    }
 }
 
-export default MacroNutrientDetails;
+export default MacronutrientDetails;

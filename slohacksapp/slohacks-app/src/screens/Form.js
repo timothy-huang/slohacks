@@ -16,16 +16,12 @@ import '../styles/Form.css';
 class Form extends Component {
 
   state = {
-<<<<<<< HEAD
-      childName: ''
-=======
       childAge: '',
       Vegetarian: false,
       Vegan: false,
       NutFree: false,
       GlutenFree: false,
       DairyFree: false
->>>>>>> d57372525e999680e4d05459db77ba00002c85fc
   }
 
   handleChange = childName => event => {

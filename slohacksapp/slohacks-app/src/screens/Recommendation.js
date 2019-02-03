@@ -76,15 +76,20 @@ class Recommendation extends Component {
 
         switch (activityLevel) {
             case 1:
-            activityCoeff = 1.2
+            activityCoeff = 1.2;
+            break;
             case 2:
-            activityCoeff = 1.375
+            activityCoeff = 1.375;
+            break;
             case 3:
-            activityCoeff = 1.55
+            activityCoeff = 1.55;
+            break;
             case 4:
-            activityCoeff = 1.725
+            activityCoeff = 1.725;
+            break;
             case 5: 
-            activityCoeff = 1.9
+            activityCoeff = 1.9;
+            break;
         }
 
         let plusMinusFlag;
@@ -117,7 +122,6 @@ class Recommendation extends Component {
 
     render() {
         return (
-<<<<<<< HEAD
             <div id="main">
                 <p className="Text question"> How much weight do you want to gain or lose in total?</p>
                 <div class="slider">
@@ -154,10 +158,6 @@ class Recommendation extends Component {
                 Calculate my Nutrition Plan
                 </Button>
             </div>
-=======
-            <h2>Recommendation</h2>
-
->>>>>>> d57372525e999680e4d05459db77ba00002c85fc
         );
     }
 }

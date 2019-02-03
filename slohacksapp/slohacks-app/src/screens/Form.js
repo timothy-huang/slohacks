@@ -120,7 +120,7 @@ class Form extends Component {
                       </Button>
                     </div>
 
-                    <div style ={{ marginTop: 24 }}>
+                    <div style ={{ marginTop: 32 }}>
                       Any dietary restrictions?
                     </div>
 

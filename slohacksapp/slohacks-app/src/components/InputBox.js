@@ -13,16 +13,9 @@ class InputBox extends Component {
     super(props)
 
     this.state = {
-        expanded: false,
-        childInput: ''
+        expanded: false
     }
   }
-
-    handleInput = childInput => event => {
-        this.setState({
-          [childInput]: event.target.value,
-        });
-    };
 
     handleExpanded = expanded => event => {
       this.setState(prevState => ({
@@ -44,8 +37,8 @@ class InputBox extends Component {
         textField = <TextField
         id="standard-name"
         className="name-input"
-        value={this.state.childInput}
-        onChange={this.handleInput('childInput')}
+        value={this.props.value}
+        onChange={this.props.onChangeValue}
         margin="normal"
         style ={{width: '90%'}}
         />

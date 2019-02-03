@@ -73,7 +73,7 @@ class App extends Component {
     let protPerc = 0;
 
 
-    switch (this.state.activityLevel) {
+    switch (b) {
       case '1':
       protPerc = 0.4;
       break;

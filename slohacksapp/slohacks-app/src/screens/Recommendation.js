@@ -58,9 +58,6 @@ class Recommendation extends Component {
         let gender = this.props.list['weight'];
         let s;
         console.log(this.props.list['activityLevel'])
-        this.setState({
-            activityLevel: this.props.list['activityLevel']
-        })
 
         if (gender === 'M') {
             s = 5;
@@ -72,7 +69,7 @@ class Recommendation extends Component {
 
         let activityCoeff = 1.55;
 
-        switch (this.state.activityLevel) {
+        switch (this.props.list['activityLevel']) {
             case '1':
             activityCoeff = 1.2;
             break;
@@ -159,7 +156,7 @@ class Recommendation extends Component {
                     </div>
 
                     <div id="background">You will {this.state.gainLose} {Math.abs(this.state.totalWeight)} lbs by {this.state.displayDate}.</div>
-                    <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.process(this.state.finalCalories, this.state.activityLevel, this.state.weightPerWeek)}>
+                    <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.process(this.state.finalCalories, this.props.list["activityLevel"], this.state.weightPerWeek)}>
                     Calculate Nutrition Plan
                     </Button>
                 </div>

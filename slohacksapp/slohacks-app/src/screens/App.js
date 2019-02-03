@@ -14,7 +14,7 @@ class App extends Component {
     this.processForm = this.processForm.bind(this);
 
     this.state = {
-      name: 'friend',
+      name: 'Friend',
       age: '',
       gender: '',
       heightft: '',
@@ -36,7 +36,6 @@ class App extends Component {
   }
 
   processForm(input) {
-
     this.setState({
       age: input.childAge,
       gender: input.childGender,
@@ -48,6 +47,8 @@ class App extends Component {
       gluten: input.GlutenFree,
       dairy: input.DairyFree
     });
+
+    this.props.history.push('/Recommendation')
   }
 
   nameHandler(input) {

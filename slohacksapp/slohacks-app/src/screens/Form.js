@@ -12,6 +12,10 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 
 import '../styles/Form.css';
+import kiwi from '../assets/img/kiwi.png';
+import mango from '../assets/img/mango.png';
+import pomegranate from '../assets/img/pomegranate.png';
+import coconut from '../assets/img/coconut.png';
 
 class Form extends Component {
 
@@ -59,8 +63,12 @@ class Form extends Component {
       const { Vegetarian, Vegan, NutFree, GlutenFree, DairyFree } = this.state;
         return (
             <div id="wrapper">
+                <img src={kiwi} alt="Kiwi" className="kiwi"/>;
+                <img src={mango} alt="Mango" className="mango"/>;
+                <img src={pomegranate} alt="Pomegranate" className="pomegranate"/> 
+                <img src={coconut} alt="Coconut" className="coconut"/> 
                 <div id="container">
-                  <div className="greeting">Hi {this.trimName(this.props.name)}!</div>
+                  <div className="greeting">Hi, {this.trimName(this.props.name)}!</div>
                   <InputBox question="How old are you?" description="Age allows to estimate your body’s growth. A 12 year old child would have a different body composition from 40 year old adult." value={this.state.childAge} onChangeValue={this.handleChangeAge}/>
                   <InputBox question="How tall are you? (5 ft 3 in = 5' 3&quot;)" description="Height and weight allows us to estimate your body composition. " value={this.state.childHeight} onChangeValue={this.handleChangeHeight}/>
                   <InputBox question="How much do you weigh? (lbs)" description="Height and weight allows us to estimate your body composition.  " value={this.state.childWeight} onChangeValue={this.handleChangeWeight}/>

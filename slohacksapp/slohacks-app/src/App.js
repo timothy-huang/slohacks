@@ -1,49 +1,34 @@
-
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-const styles = theme => ({
-  button: {
-    margin: theme.spacing.unit,
-  },
-  input: {
-    display: 'none',
-  },
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 200,
-  },
-  dense: {
-    marginTop: 19,
-  },
-  menu: {
-    width: 200,
-  },
-});
+function Home() {
+  return (
+    <div>
+      <h2>Home</h2>
+    </div>
+  );
+}
 
-class App extends React.Component {
+function About() {
+  return (
+    <div>
+      <h2>About</h2>
+    </div>
+  );
+}
+
+class App extends Component {
   state = {
     name: '',
     age: '',
     multiline: 'Controlled'
   };
-
-  showAlert(name) {
-    alert(name)
-  }
 
   handleChange = name => event => {
     this.setState({
@@ -55,9 +40,29 @@ class App extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div className="App">
+      <div>
+        <Router>
+          <div>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/topics">Topics</Link>
+              </li>
+            </ul>
+
+            <hr />
+
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+          </div>
+        </Router>
+
         <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <p className="open-prompt">Nice to meet you.</p>
           <p className="open-prompt">What's your name?</p>
           <form className="name-input" noValidate autoComplete="off">
@@ -69,7 +74,7 @@ class App extends React.Component {
               margin="normal"
             />
           </form>
-          <Button type="submit" variant="contained" color="primary" id="name-submit-button" onClick={() => this.showAlert(this.state.name)}>
+          <Button variant="contained" color="primary" id="name-submit-button">
             Continue
           </Button>
         </header>
@@ -77,7 +82,5 @@ class App extends React.Component {
     );
   }
 }
-App.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-export default withStyles(styles)(App);
+
+export default App;

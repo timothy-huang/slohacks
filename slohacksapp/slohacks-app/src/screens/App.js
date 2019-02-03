@@ -65,12 +65,12 @@ class App extends Component {
 
     return (
       <div>
-        <ul>
+        {/* <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/Form">Form</Link></li>
             <li><Link to="/Recommendation">Recommendation</Link></li>
             <li><Link to="/MacronutrientDetails">MacronutrientDetails</Link></li>
-        </ul>
+        </ul> */}
 
         <Route
           exact path="/"

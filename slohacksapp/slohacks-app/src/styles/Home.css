@@ -1,6 +1,6 @@
 html, body {
   overflow-x: hidden;
-  
+  overflow: hidden;
 }
 
 body {
@@ -24,10 +24,6 @@ body {
   justify-content: center;
   color: white;
   height: 100vh;
-}
-
-.Home-link {
-  color: #61dafb;
 }
 
 p {

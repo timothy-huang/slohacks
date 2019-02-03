@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class InputBox extends Component {
+class RadioButton extends Component {
     constructor(props) {
         super(props)
 
@@ -26,4 +26,4 @@ class InputBox extends Component {
     }
 }
 
-export default InputBox
+export default RadioButton;

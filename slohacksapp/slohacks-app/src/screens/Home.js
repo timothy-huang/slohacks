@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import { TextField, Button, Input } from '@material-ui/core';
 
 import '../styles/Home.css';
 
 import tomato from '../assets/img/tomato.png';
 import broccoli from '../assets/img/broccoli.png';
+
+import RadioButton from '../components/RadioButton';
 
 class Home extends Component {
     state = {
@@ -26,17 +27,17 @@ class Home extends Component {
                 <p className="open-prompt">Nice to meet you.</p>
                 <p className="open-prompt">What's your name?</p>
                 <form className="name-input" noValidate autoComplete="off">
-                    <TextField
-                    id="standard-name"
-                    className="name-input"
-                    value={this.state.childName}
-                    onChange={this.handleChange('childName')}
-                    margin="normal"
+                    <Input
+                        className="textfield"
+                        value={this.state.childName}
+                        onChange={this.handleChange('childName')}
+                        style={{ width: '400px', textAlign: 'center' }}
                     />
                 </form>
                 <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.action(this.state.childName)}>
                     Continue
                 </Button>
+                
             </div>
         );
     }

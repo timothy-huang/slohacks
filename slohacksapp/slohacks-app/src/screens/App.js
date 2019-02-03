@@ -14,13 +14,14 @@ class App extends Component {
     this.processForm = this.processForm.bind(this);
 
     this.state = {
-      name: 'friend',
-      age: '19',
-      gender: 'M',
-      heightft: '5',
-      heightin: '10',
-      weight: '165',
-      activityLevel: '1',
+      name: 'Friend',
+      age: '',
+      gender: '',
+      heightft: '',
+      heightin: '',
+      weight: '',
+      activityLevel: '',
+      foodFrequency: '',
       target: '',
       vegetarian: false,
       vegan: false,
@@ -35,7 +36,6 @@ class App extends Component {
   }
 
   processForm(input) {
-
     this.setState({
       age: input.childAge,
       gender: input.childGender,
@@ -47,6 +47,8 @@ class App extends Component {
       gluten: input.GlutenFree,
       dairy: input.DairyFree
     });
+
+    this.props.history.push('/Recommendation')
   }
 
   nameHandler(input) {

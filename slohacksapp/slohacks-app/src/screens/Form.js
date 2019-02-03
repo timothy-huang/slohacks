@@ -12,6 +12,10 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 
 import '../styles/Form.css';
+import kiwi from '../assets/img/kiwi.png';
+import mango from '../assets/img/mang.png';
+import pomegranate from '../assets/img/pomegranate.png';
+import coconut from '../assets/img/coconut.png';
 
 class Form extends Component {
 
@@ -54,12 +58,16 @@ log() {
       const { Vegetarian, Vegan, NutFree, GlutenFree, DairyFree } = this.state;
         return (
             <div id="wrapper">
+                <img src={kiwi} alt="Kiwi" className="kiwi"/>;
+                <img src={mango} alt="Mango" className="mango"/>;
+                <img src={pomegranate} alt="Pomegranate" className="pomegranate"/> 
+                <img src={coconut} alt="Coconut" className="coconut"/> 
                 <div id="container">
-                  <h1 style={{color: '#304503'}}>Hi {this.trimName(this.props.name)}!</h1>
-                  <InputBox question="How old are you?" description="Age allows to estimate your body’s growth. A 12 year old child would have a different body composition from 40 year old adult."/>
-                  <InputBox question="How tall are you?" description="Height and weight allows us to estimate your body composition. "/>
-                  <InputBox question="How much do you weigh?" description="Height and weight allows us to estimate your body composition.  "/>
-                  <InputBox question="Male, Female, Non-Binary?" description="Male and female bodies have different nutritional requirements."/>
+                  <div className="greeting">Hi, {this.trimName(this.props.name)}!</div>
+                  <InputBox question="How old are you?" description="Age allows to estimate your body’s growth. A 12 year old child would have a different body composition from 40 year old adult." value={this.state.childAge} onChangeValue={this.handleChangeAge}/>
+                  <InputBox question="How tall are you? (5 ft 3 in = 5' 3&quot;)" description="Height and weight allows us to estimate your body composition. " value={this.state.childHeight} onChangeValue={this.handleChangeHeight}/>
+                  <InputBox question="How much do you weigh? (lbs)" description="Height and weight allows us to estimate your body composition.  " value={this.state.childWeight} onChangeValue={this.handleChangeWeight}/>
+                  <InputBox question="Male, Female, Non-Binary?" description="Male and female bodies have different nutritional requirements." value={this.state.childGender} onChangeValue={this.handleChangeGender}/>
 
                   <div id="gender-btns">
                     <Button variant="outlined" color="primary" id="gender-btn" active>

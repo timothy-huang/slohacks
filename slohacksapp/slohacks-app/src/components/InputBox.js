@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Route , withRouter} from 'react-router-dom';
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown'
+import KeyboardArrowUp from '@material-ui/icons/KeyboardArrowUp'
 
 import '../styles/InputBox.css';
 
@@ -32,9 +33,12 @@ class InputBox extends Component {
 
     render() {
       let textField;
+      let arrow;
 
-      if(this.state.expanded) {
+      if (this.state.expanded) {
         textField = <div className="description">{this.props.description}</div>
+        arrow = <KeyboardArrowUp style={{color: 'black'}} onClick=
+        {this.handleExpanded()}/>
       } else {
         textField = <TextField
         id="standard-name"
@@ -44,12 +48,13 @@ class InputBox extends Component {
         margin="normal"
         style ={{width: '90%'}}
         />
+        arrow = <KeyboardArrowDown style={{color: 'black'}} onClick={this.handleExpanded()}/>
       }
         return (
           <div>
             <div className="row">
               {this.props.question}
-              <KeyboardArrowDown style={{color: 'black'}} onClick={this.handleExpanded()}/>
+              {arrow}
             </div>
             <div>
               {textField}

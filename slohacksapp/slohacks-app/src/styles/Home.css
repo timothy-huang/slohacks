@@ -56,8 +56,8 @@ p {
   transform: rotate(30deg);
   position: absolute;
   z-index: -1;
-  left: -150px;
-  bottom: -320px;
+  left: -100px;
+  bottom: -100px;
 }
 
 .broccoli {

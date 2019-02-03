@@ -8,8 +8,9 @@ class Recommendation extends Component {
 
     constructor(props) {
         super(props);
+        console.log(this.props.list)
         this.state = {
-            totalWeight: 0, 
+            totalWeight: 0,
             weightPerWeek: 1,
             expectedDate: new Date(),
             displayDate: this.dateProcessing(new Date()),
@@ -22,8 +23,7 @@ class Recommendation extends Component {
             // weight: this.props.list['weight'],
             // activityLevel: this.props.list['activityLevel'],
             // target:this.props.list["target"],
-            expectedCalorie: this.computeCalories(),
-            recommendedCalorie: this.computeCalories()
+            finalCalories: this.computeCalories()
         };
     }
 
@@ -48,20 +48,21 @@ class Recommendation extends Component {
         if (this.state.weightPerWeek !== 0) {
             numDays = Math.round(Math.abs(this.state.totalWeight) / this.state.weightPerWeek * 7);
             this.state.expectedDate.setDate(this.state.expectedDate.getDate() + numDays);
-        } 
-            
+        }
+
         this.setState({displayDate: this.dateProcessing(this.state.expectedDate)});
         this.setState({expectedDate: new Date()});
     }
 
     computeCalories() {
         let age = parseInt(this.props.list['age']);
-        let heightft = parseFloat(this.props.list['heightft']);
-        let heightin = parseFloat(this.props.list['heightin']);
+        let height = this.props.list['height'];
+        let heightft = parseFloat(height.slice(0,1));
+        let heightin = parseFloat(height.slice(3, -2));
         let weight = parseFloat(this.props.list['weight']);
         let activityLevel = parseInt(this.props.list['activityLevel']);
+        this.setState({activityLevel: activityLevel})
         let gender = this.props.list['weight'];
-
         let s;
 
         if (gender === 'M') {
@@ -87,7 +88,7 @@ class Recommendation extends Component {
             case 4:
             activityCoeff = 1.725;
             break;
-            case 5: 
+            case 5:
             activityCoeff = 1.9;
             break;
         }
@@ -96,7 +97,7 @@ class Recommendation extends Component {
         let tempWeightPerWeek;
 
         if (typeof this.state !== "undefined") {
-        if (this.state.gainLose === "loss") {
+        if (this.state.totalWeight < 0) {
             plusMinusFlag = -1;
         } else {
             plusMinusFlag = 1
@@ -110,13 +111,15 @@ class Recommendation extends Component {
     }
 
     handleChangeTotalWeight = (event, value) => {
-        this.setState({totalWeight: value})
-        this.weekProcessing()
+        this.setState({totalWeight: value, finalCalories: this.computeCalories()});
+        this.weekProcessing();
+        console.log(this.state.finalCalories);
     }
 
     handleChangeWeightPerWeek = (event, value) => {
-        this.setState({weightPerWeek: Math.round(value*10) / 10}) 
-        this.weekProcessing()
+        this.setState({weightPerWeek: Math.round(value*10) / 10, finalCalories: this.computeCalories()});
+        this.weekProcessing();
+        console.log(this.state.finalCalories);
     }
 
     render() {
@@ -137,7 +140,7 @@ class Recommendation extends Component {
                     <div className="sliderLabels">
                     <p className="Text">-20 lbs</p><p>20 lbs</p></div>
                     </div>
-                    
+
                     <p className="Text question">How much weight do you want to gain or lose per week?</p>
                     <div class="slider">
                     <p className="Text sliderText">{this.state.weightPerWeek} lbs</p>
@@ -154,7 +157,7 @@ class Recommendation extends Component {
                     </div>
 
                     <div id="background">You will {this.state.gainLose} {Math.abs(this.state.totalWeight)} lbs by {this.state.displayDate}.</div>
-                    <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.action(this.state.childName)}>
+                    <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.process(this.state.finalCalories, this.state.activityLevel, this.state.weightPerWeek)}>
                     Calculate Nutrition Plan
                     </Button>
                 </div>

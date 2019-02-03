@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-d
 import Home from './Home.js'
 import Form from './Form.js';
 import Recommendation from './Recommendation.js';
-import MacronutrientDetails from '../components/MacronutrientDetails.js';
+import Results from './Results.js'
 
 class App extends Component {
   constructor(props) {
@@ -12,15 +12,15 @@ class App extends Component {
 
     this.nameHandler = this.nameHandler.bind(this);
     this.processForm = this.processForm.bind(this);
+    this.recommendHandler = this.recommendHandler.bind(this);
 
     this.state = {
       name: 'Friend',
-      age: '',
-      gender: '',
-      heightft: '',
-      heightin: '',
-      weight: '',
-      activityLevel: '',
+      age: '17',
+      gender: 'M',
+      height: "5' 11''",
+      weight: '175',
+      activityLevel: '1',
       foodFrequency: '',
       target: '',
       vegetarian: false,
@@ -31,7 +31,9 @@ class App extends Component {
       calories: '',
       protein: '',
       carbohydrates: '',
-      fat: ''
+      fat: '',
+      finalCalories: '',
+      weightPerWeek: ''
     };
   }
 
@@ -45,32 +47,66 @@ class App extends Component {
       vegan: input.Vegan,
       nut: input.NutFree,
       gluten: input.GlutenFree,
-      dairy: input.DairyFree
+      dairy: input.DairyFree,
+      height: input.childHeight
     });
 
     this.props.history.push('/Recommendation')
   }
 
   nameHandler(input) {
-    if (input != '') {
+    if (input !== '') {
       this.setState({
         name: input
       });
     }
     this.props.history.push('/Form');
-    console.log(this.state)
+  }
+
+  recommendHandler(a, b, c) {
+    this.setState({
+      finalCalories: a,
+      activityLevel: b,
+      weightPerWeek: c
+    });
+
+    let protPerc = 0;
+
+
+    switch (this.state.activityLevel) {
+      case '1':
+      protPerc = 0.4;
+      break;
+      case '2':
+      protPerc = 0.75;
+      break;
+      case 3:
+      protPerc = 0.9;
+      break;
+      case 4:
+      protPerc = 0.9;
+      break;
+      case 5:
+      protPerc = 1.0
+      break;
+    };
+
+      this.setState({protein: protPerc * this.state.weight, fat: 0.25 * parseFloat(a) / 9.0});
+      this.setState({carbohydrates: (a - protPerc * this.state.weight * 4 - 0.25 * parseFloat(a)) / 4.0});
+
+    this.props.history.push('/Results');
   }
 
   render() {
 
     return (
       <div>
-        <ul>
+        {/* <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/Form">Form</Link></li>
             <li><Link to="/Recommendation">Recommendation</Link></li>
             <li><Link to="/MacronutrientDetails">MacronutrientDetails</Link></li>
-        </ul>
+        </ul> */}
 
         <Route
           exact path="/"
@@ -82,9 +118,10 @@ class App extends Component {
         />
         <Route
           path="/Recommendation"
-          render={() => <Recommendation list={this.state} />}
+          render={() => <Recommendation list={this.state} process={this.recommendHandler}/>}
         />
-        <Route path="/MacronutrientDetails" component={MacronutrientDetails} />
+        <Route path="/Results"
+        render={() => <Results list={this.state}/>}/>
       </div>
     );
   }

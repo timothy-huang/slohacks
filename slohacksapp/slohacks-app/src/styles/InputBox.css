@@ -1,0 +1,16 @@
+#standard-name {
+  font-size: 24px;
+}
+
+#info-btn {
+  left: 70%;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-between;
+}

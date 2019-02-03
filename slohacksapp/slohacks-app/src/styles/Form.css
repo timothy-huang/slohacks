@@ -1,3 +1,16 @@
 h1 {
   text-align: center;
 }
+
+#gender-btns {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#gender-btn {
+  margin-right: 10px;
+}
+
+#fullform {
+  text-align: center;
+}

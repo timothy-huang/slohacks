@@ -21,7 +21,7 @@ class Form extends Component {
       Vegan: false,
       NutFree: false,
       GlutenFree: false,
-      DairyFree: false,
+      DairyFree: false
   }
 
   handleChange = childName => event => {
@@ -44,93 +44,90 @@ trimName(name) {
       const { classes } = this.props;
       const { Vegetarian, Vegan, NutFree, GlutenFree, DairyFree } = this.state;
         return (
-            <div id="fullform">
-                <h1>Hi {this.trimName(this.props.name)}!</h1>
-                <InputBox question="How old are you?" description="this is for your own good"/>
-                <InputBox question="How tall are you?" description="i mean that"/>
-                <InputBox question="How much do you weigh?" description="you can trust us with your info"/>
+            <div id="wrapper">
+                <div id="container">
+                  <h1>Hi {this.trimName(this.props.name)}!</h1>
+                  <InputBox question="How old are you?" description="Age allows to estimate your body’s growth. A 12 year old child would have a different body composition from 40 year old adult."/>
+                  <InputBox question="How tall are you?" description="Height and weight allows us to estimate your body composition. "/>
+                  <InputBox question="How much do you weigh?" description="Height and weight allows us to estimate your body composition.  "/>
+                  <InputBox question="Male, Female, Non-Binary?" description="Male and female bodies have different nutritional requirements."/>
 
-                <div>
-                  Male, Female, Non-Binary?
-                </div>
+                  <div id="gender-btns">
+                    <Button variant="outlined" color="primary" id="gender-btn" active>
+                      M
+                    </Button>
+                    <Button variant="outlined" color="secondary" id="gender-btn">
+                      F
+                    </Button>
+                    <Button variant="outlined" id="gender-btn">
+                      N
+                    </Button>
+                  </div>
 
-                <div id="gender-btns">
-                  <Button variant="outlined" color="primary" id="gender-btn">
-                    M
-                  </Button>
-                  <Button variant="outlined" color="secondary" id="gender-btn">
-                    F
-                  </Button>
-                  <Button variant="outlined" id="gender-btn">
-                    N
-                  </Button>
-                </div>
+                  <InputBox question="What is your activity level?" description="The users activity level will allow us to create the best personalized plan for you. 1. No activity level 2. Light activity level (light walking) 3. Average (fitness of any kind at least 3x a week) 4. Very Active (fitness at least 5x a week and active lifestyle) 5. Athlete"/>
 
-                <div>
-                  What is your activity level?
-                </div>
+                  <div id="gender-btns">
+                    <Button variant="outlined" id="gender-btn" >
+                      1
+                    </Button>
+                    <Button variant="outlined" id="gender-btn">
+                      2
+                    </Button>
+                    <Button variant="outlined" id="gender-btn">
+                      3
+                    </Button>
+                    <Button variant="outlined" id="gender-btn">
+                      4
+                    </Button>
+                    <Button variant="outlined" id="gender-btn">
+                      5
+                    </Button>
+                  </div>
 
-                <div id="gender-btns">
-                  <Button variant="outlined" id="gender-btn">
-                    1
-                  </Button>
-                  <Button variant="outlined" id="gender-btn">
-                    2
-                  </Button>
-                  <Button variant="outlined" id="gender-btn">
-                    3
-                  </Button>
-                  <Button variant="outlined" id="gender-btn">
-                    4
-                  </Button>
-                  <Button variant="outlined" id="gender-btn">
-                    5
-                  </Button>
-                </div>
+                  <div>
+                    Any dietary restrictions?
+                  </div>
 
-                <div>
-                  Any dietary restrictions?
-                </div>
-
-                <div>
-                  <FormControl component="fieldset">
-                    <FormGroup>
-                      <FormControlLabel
-                        control={
-                          <Checkbox checked={Vegetarian} onChange={this.handleCheck('Vegetarian')} value="Vegetarian" />
-                        }
-                        label="Vegeterian"
-                      />
-                      <FormControlLabel
-                        control={
-                          <Checkbox checked={Vegan} onChange={this.handleCheck('Vegan')} value="Vegan" />
-                        }
-                        label="Vegan"
-                      />
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            checked={NutFree}
-                            onChange={this.handleCheck('NutFree')}
-                            value="Nut Free"
-                          />
-                        }
-                        label="Nut Free"
-                      />
-                      <FormControlLabel
-                        control={
-                          <Checkbox checked={GlutenFree} onChange={this.handleCheck('GlutenFree')} value="Gluten Free" />
-                        }
-                        label="Gluten Free"
-                      />
-                      <FormControlLabel
-                        control={
-                          <Checkbox checked={DairyFree} onChange={this.handleCheck('DairyFree')} value="Dairy Free" />
-                        }
-                        label="Dairy Free"
-                      />
-                    </FormGroup>
-                  </FormControl>
+                  <div>
+                    <FormControl component="fieldset">
+                      <FormGroup>
+                        <FormControlLabel
+                          control={
+                            <Checkbox checked={Vegetarian} onChange={this.handleCheck('Vegetarian')} value="Vegetarian" />
+                          }
+                          label="Vegeterian"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox checked={Vegan} onChange={this.handleCheck('Vegan')} value="Vegan" />
+                          }
+                          label="Vegan"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={NutFree}
+                              onChange={this.handleCheck('NutFree')}
+                              value="Nut Free"
+                            />
+                          }
+                          label="Nut Free"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox checked={GlutenFree} onChange={this.handleCheck('GlutenFree')} value="Gluten Free" />
+                          }
+                          label="Gluten Free"
+                        />
+                        <FormControlLabel
+                          control={
+                            <Checkbox checked={DairyFree} onChange={this.handleCheck('DairyFree')} value="Dairy Free" />
+                          }
+                          label="Dairy Free"
+                        />
+                      </FormGroup>
+                    </FormControl>
+                  </div>
                 </div>
             </div>
         );

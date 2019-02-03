@@ -1,5 +1,6 @@
 #standard-name {
   font-size: 24px;
+
 }
 
 #info-btn {
@@ -11,6 +12,17 @@
 .row {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.description {
+  margin-left: 5px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  padding: 8px;
+  width: 95%;
+  font-size: 16px;
+  background-color: #F1F2E6
 }

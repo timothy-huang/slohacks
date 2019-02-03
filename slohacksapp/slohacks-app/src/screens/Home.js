@@ -6,7 +6,6 @@ import '../styles/Home.css';
 import tomato from '../assets/img/tomato.png';
 import broccoli from '../assets/img/broccoli.png';
 
-import RadioButton from '../components/RadioButton';
 
 class Home extends Component {
     state = {
@@ -37,7 +36,6 @@ class Home extends Component {
                 <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.action(this.state.childName)}>
                     Continue
                 </Button>
-                
             </div>
         );
     }

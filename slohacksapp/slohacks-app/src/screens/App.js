@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
 
 import Home from './Home.js'
 import Form from './Form.js';
@@ -9,11 +9,11 @@ import MacronutrientDetails from '../components/MacronutrientDetails.js';
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.nameHandler = this.nameHandler.bind(this);
 
     this.state = {
-      name: 'didnt change',
+      name: 'friend',
       age: '',
       gender: '',
       heightft: '',
@@ -35,39 +35,39 @@ class App extends Component {
   }
 
   nameHandler(input) {
-    this.setState({
-      name: input
-    });
+    if (input != '') {
+      this.setState({
+        name: input
+      });
+    }
+    this.props.history.push('/Form'); 
   }
 
   render() {
+
     return (
       <div>
-      <Router>
-        <div>
-          <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/Form">Form</Link></li>
-              <li><Link to="/Recommendation">Recommendation</Link></li>
-              <li><Link to="/MacronutrientDetails">MacronutrientDetails</Link></li>
-          </ul>
+        <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/Form">Form</Link></li>
+            <li><Link to="/Recommendation">Recommendation</Link></li>
+            <li><Link to="/MacronutrientDetails">MacronutrientDetails</Link></li>
+        </ul>
 
-          
-          <Route 
-            exact path="/" 
-            render={() => <Home action={this.nameHandler} />}
-          />
-          <Route 
-            path="/Form" 
-            render={() => <Form name={this.state.name} />}
-          />
-          <Route path="/Recommendation" component={Recommendation} />
-          <Route path="/MacronutrientDetails" component={MacronutrientDetails} />
-        </div>
-      </Router>
+        
+        <Route 
+          exact path="/" 
+          render={(props) => <Home {...props} action={this.nameHandler} />}
+        />
+        <Route 
+          path="/Form" 
+          render={() => <Form name={this.state.name} />}
+        />
+        <Route path="/Recommendation" component={Recommendation} />
+        <Route path="/MacronutrientDetails" component={MacronutrientDetails} />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

@@ -60,7 +60,7 @@ class Recommendation extends Component {
         let heightft = parseFloat(height.slice(0,1));
         let heightin = parseFloat(height.slice(3, -2));
         let weight = parseFloat(this.props.list['weight']);
-        let activityLevel = parseInt(this.props.list['activityLevel']);
+        let activityLevel = this.props.list['activityLevel'];
         this.setState({activityLevel: activityLevel})
         let gender = this.props.list['weight'];
         let s;
@@ -76,22 +76,27 @@ class Recommendation extends Component {
         let activityCoeff;
 
         switch (activityLevel) {
-            case 1:
+            case '1':
             activityCoeff = 1.2;
             break;
-            case 2:
+            case '2':
             activityCoeff = 1.375;
             break;
-            case 3:
+            case '3':
             activityCoeff = 1.55;
             break;
-            case 4:
+            case '4':
             activityCoeff = 1.725;
             break;
-            case 5:
+            case '5':
             activityCoeff = 1.9;
             break;
         }
+
+        console.log(brm);
+        console.log(activityCoeff);
+
+
 
         let plusMinusFlag;
         let tempWeightPerWeek;

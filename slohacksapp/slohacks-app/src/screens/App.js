@@ -20,7 +20,7 @@ class App extends Component {
       gender: 'M',
       height: "5' 11''",
       weight: '175',
-      activityLevel: '1',
+      activityLevel: '2',
       foodFrequency: '',
       target: '',
       vegetarian: false,

@@ -11,6 +11,7 @@ class Results extends Component {
         carbs: 0
     }
     render() {
+        console.log(this.props.list)
         return (
             <div id="recommendationWrapper">
             <div id="main">

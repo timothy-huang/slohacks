@@ -13,23 +13,14 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 import '../styles/Form.css';
 import kiwi from '../assets/img/kiwi.png';
-import mango from '../assets/img/mango.png';
+import mango from '../assets/img/mang.png';
 import pomegranate from '../assets/img/pomegranate.png';
 import coconut from '../assets/img/coconut.png';
 
 class Form extends Component {
 
   state = {
-      childAge: '',
-      childHeight: '',
-      childWeight: '',
-      childGender: '',
-      childActivityLevel: '',
-      Vegetarian: false,
-      Vegan: false,
-      NutFree: false,
-      GlutenFree: false,
-      DairyFree: false
+      childName: ''
   }
 
   handleChange = childName => event => {
@@ -42,21 +33,20 @@ class Form extends Component {
     this.setState({ [name]: event.target.checked });
   };
 
-  handleChangeAge = e => this.setState({childAge: e.target.value});
+trimName(name) {
+  var n = name.split(" ")
+  console.log(n[0])
+  return n[0]
+}
 
-  handleChangeHeight = e => this.setState({childHeight: e.target.value});
+transition() {
+  var element = document.querySelector('InputBox')
+  console.log(element)
+}
 
-  handleChangeWeight = e => this.setState({childWeight: e.target.value});
-
-  handleChangeGender = e => this.setState({childGender: e.target.value});
-
-  handleChangeActivityLevel = e => this.setState({childActivityLevel: e.target.value});
-
-  trimName(name) {
-    var n = name.split(" ")
-    console.log(n[0])
-    return n[0]
-  }
+log() {
+  console.log('fired')
+}
 
     render() {
       const { classes } = this.props;
@@ -86,7 +76,7 @@ class Form extends Component {
                     </Button>
                   </div>
 
-                  <InputBox question="What is your activity level?" description="The users activity level will allow us to create the best personalized plan for you. 1. No activity level 2. Light activity level (light walking) 3. Average (fitness of any kind at least 3x a week) 4. Very Active (fitness at least 5x a week and active lifestyle) 5. Athlete" value={this.state.childActivityLevel} onChangeValue={this.handleChangeActivityLevel}/>
+                  <InputBox question="What is your activity level?" description="The users activity level will allow us to create the best personalized plan for you. 1. No activity level 2. Light activity level (light walking) 3. Average (fitness of any kind at least 3x a week) 4. Very Active (fitness at least 5x a week and active lifestyle) 5. Athlete"/>
 
                   <div id="gender-btns">
                     <Button variant="outlined" id="gender-btn" >
@@ -106,13 +96,13 @@ class Form extends Component {
                     </Button>
                   </div>
 
-                  <div style={{marginTop: 24}}>
+                  <div>
                     Any dietary restrictions?
                   </div>
 
                   <div>
                     <FormControl component="fieldset">
-                      <FormGroup row='true'>
+                      <FormGroup>
                         <FormControlLabel
                           control={
                             <Checkbox checked={Vegetarian} onChange={this.handleCheck('Vegetarian')} value="Vegetarian" />
@@ -121,7 +111,7 @@ class Form extends Component {
                         />
                         <FormControlLabel
                           control={
-                            <Checkbox checked={Vegan} onChange={this.handleCheck('Vegan')} value="Vegan"/>
+                            <Checkbox checked={Vegan} onChange={this.handleCheck('Vegan')} value="Vegan" />
                           }
                           label="Vegan"
                         />
@@ -150,7 +140,7 @@ class Form extends Component {
                       </FormGroup>
                     </FormControl>
                   </div>
-                  <Button variant="contained" color="primary"     id="name-submit-button" onClick={() => this.props.processForm(this.state)}>
+                  <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.action(this.state.childName)}>
                       Continue
                   </Button>
                 </div>

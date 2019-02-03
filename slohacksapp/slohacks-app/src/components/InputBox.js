@@ -13,15 +13,25 @@ class InputBox extends Component {
     super(props)
 
     this.state = {
-        expanded: false
+        expanded: false,
+        childInput: ''
     }
   }
+
+    handleInput = childInput => event => {
+        this.setState({
+          [childInput]: event.target.value,
+        });
+    };
+
     handleExpanded = expanded => event => {
       this.setState(prevState => ({
         expanded: !prevState.expanded
       }));
+      var element = document.getElementById('r')
+      element.classList.toggle('.mystyle')
     }
-    
+
     render() {
       let textField;
       let arrow;
@@ -34,16 +44,16 @@ class InputBox extends Component {
         textField = <TextField
         id="standard-name"
         className="name-input"
-        value={this.props.value}
-        onChange={this.props.onChangeValue}
+        value={this.state.childInput}
+        onChange={this.handleInput('childInput')}
         margin="normal"
         style ={{width: '90%'}}
         />
         arrow = <KeyboardArrowDown style={{color: 'black'}} onClick={this.handleExpanded()}/>
       }
         return (
-          <div className="outsideWrapper">
-            <div className="row">
+          <div>
+            <div className="row mystyle" id="r">
               {this.props.question}
               {arrow}
             </div>

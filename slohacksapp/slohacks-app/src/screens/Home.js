@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { Route , withRouter} from 'react-router-dom';
 
 import '../styles/Home.css';
+
+import tomato from '../assets/img/tomato.png';
+import broccoli from '../assets/img/broccoli.png';
 
 class Home extends Component {
     state = {
@@ -16,10 +18,11 @@ class Home extends Component {
         });
     };
 
-
     render() {
         return (
             <div className="container">
+                <img src={tomato} alt="Tomato" className="tomato"/>;
+                <img src={broccoli} alt="Broccoli" className="broccoli"/>;
                 <p className="open-prompt">Nice to meet you.</p>
                 <p className="open-prompt">What's your name?</p>
                 <form className="name-input" noValidate autoComplete="off">

@@ -1,5 +1,12 @@
-.Home {
-  text-align: center;
+html, body {
+  overflow-x: hidden;
+  
+}
+
+body {
+  position: relative;
+  padding: 16px;
+  background-color: #FCFCF7;
 }
 
 .open-prompt {
@@ -9,35 +16,18 @@
 
 }
 
-.Home-header {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .container {
-  min-height: 80vh;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  height: 100vh;
 }
 
 .Home-link {
   color: #61dafb;
-}
-
-body {
-  width: 100%;
-  float: left;
-  background-color: #FCFCF7;
-  padding: 16px;
 }
 
 p {
@@ -64,4 +54,22 @@ p {
   to {
     transform: rotate(360deg);
   }
+}
+
+.tomato {
+  width: 447px;
+  transform: rotate(30deg);
+  position: absolute;
+  z-index: -1;
+  left: -150px;
+  bottom: -320px;
+}
+
+.broccoli {
+  width: 600px;
+  transform: rotate(275deg);
+  position: absolute;
+  z-index: -1;
+  top: -180px;
+  right: -270px;
 }

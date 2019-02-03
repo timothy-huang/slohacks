@@ -1,4 +1,4 @@
-.App {
+.Home {
   text-align: center;
 }
 
@@ -6,11 +6,10 @@
   /* animation: App-logo-spin infinite 5s linear; */
   color: #304503;
   font-size: 32px;
-  text-align: center;
 
 }
 
-.App-header {
+.Home-header {
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -20,7 +19,17 @@
   color: white;
 }
 
-.App-link {
+.container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Home-link {
   color: #61dafb;
 }
 
@@ -29,7 +38,6 @@ body {
   float: left;
   background-color: #FCFCF7;
   padding: 16px;
-  text-align: center;
 }
 
 p {
@@ -40,6 +48,7 @@ p {
   margin-top: 20px;
   width: 63%;
   color: #304503;
+  text-align: center;
 }
 
 #name-submit-button {

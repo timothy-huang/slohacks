@@ -119,44 +119,45 @@ class Recommendation extends Component {
         this.weekProcessing()
     }
 
-
     render() {
         return (
-            <div id="main">
-                <p className="Text question"> How much weight do you want to gain or lose in total?</p>
-                <div class="slider">
-                <p className="Text sliderText">{this.state.totalWeight} lbs</p>
-                <Slider
-                        value={this.state.totalWeight}
-                        aria-labelledby="label"
-                        onChange={this.handleChangeTotalWeight}
-                        min={-20}
-                        max={20}
-                        step={1}
-                        />
-                <div className="sliderLabels">
-                <p className="Text">-20 lbs</p><p>20 lbs</p></div>
-                </div>
-                
-                <p className="Text question">How much weight do you want to gain or lose per week?</p>
-                <div class="slider">
-                <p className="Text sliderText">{this.state.weightPerWeek} lbs</p>
-                <Slider
-                        value={this.state.weightPerWeek}
-                        aria-labelledby="label"
-                        onChange={this.handleChangeWeightPerWeek}
-                        min={0}
-                        max={2}
-                        step={0.1}
-                        />
-                <div className="sliderLabels">
-                <p>0 lbs</p><p>2 lbs</p></div>
-                </div>
+            <div id="recommendationWrapper">
+                <div id="main">
+                    <p className="Text question"> How much weight do you want to gain or lose in total?</p>
+                    <div class="slider">
+                    <p className="Text sliderText">{this.state.totalWeight} lbs</p>
+                    <Slider
+                            value={this.state.totalWeight}
+                            aria-labelledby="label"
+                            onChange={this.handleChangeTotalWeight}
+                            min={-20}
+                            max={20}
+                            step={1}
+                            />
+                    <div className="sliderLabels">
+                    <p className="Text">-20 lbs</p><p>20 lbs</p></div>
+                    </div>
+                    
+                    <p className="Text question">How much weight do you want to gain or lose per week?</p>
+                    <div class="slider">
+                    <p className="Text sliderText">{this.state.weightPerWeek} lbs</p>
+                    <Slider
+                            value={this.state.weightPerWeek}
+                            aria-labelledby="label"
+                            onChange={this.handleChangeWeightPerWeek}
+                            min={0}
+                            max={2}
+                            step={0.1}
+                            />
+                    <div className="sliderLabels">
+                    <p>0 lbs</p><p>2 lbs</p></div>
+                    </div>
 
-                <div id="background">You will {this.state.gainLose} {Math.abs(this.state.totalWeight)} lbs by {this.state.displayDate}.</div>
-                <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.action(this.state.childName)}>
-                Calculate my Nutrition Plan
-                </Button>
+                    <div id="background">You will {this.state.gainLose} {Math.abs(this.state.totalWeight)} lbs by {this.state.displayDate}.</div>
+                    <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.action(this.state.childName)}>
+                    Calculate Nutrition Plan
+                    </Button>
+                </div>
             </div>
         );
     }

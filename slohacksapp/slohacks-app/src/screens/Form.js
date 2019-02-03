@@ -13,13 +13,12 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 import '../styles/Form.css';
 import kiwi from '../assets/img/kiwi.png';
-import mango from '../assets/img/mang.png';
+import mango from '../assets/img/mango.png';
 import pomegranate from '../assets/img/pomegranate.png';
 import coconut from '../assets/img/coconut.png';
 
 class Form extends Component {
 
-<<<<<<< HEAD
     state = {
         childAge: '',
         childHeight: '',
@@ -54,41 +53,6 @@ class Form extends Component {
       console.log(n[0])
       return n[0]
     }
-=======
-  state = {
-      childAge: '',
-      Vegetarian: false,
-      Vegan: false,
-      NutFree: false,
-      GlutenFree: false,
-      DairyFree: false
-  }
-
-  handleChange = childName => event => {
-      this.setState({
-        [childName]: event.target.value,
-      });
-  };
-
-  handleCheck = name => event => {
-    this.setState({ [name]: event.target.checked });
-  };
-
-trimName(name) {
-  var n = name.split(" ")
-  console.log(n[0])
-  return n[0]
-}
-
-transition() {
-  var element = document.querySelector('InputBox')
-  console.log(element)
-}
-
-log() {
-  console.log('fired')
-}
->>>>>>> 8e3cecfb716e60cdcaec845d6f50d6953c43fca4
 
     render() {
       const { classes } = this.props;
@@ -138,13 +102,13 @@ log() {
                     </Button>
                   </div>
 
-                  <div>
+                  <div style ={{ marginTop: 24 }}>
                     Any dietary restrictions?
                   </div>
 
                   <div>
                     <FormControl component="fieldset">
-                      <FormGroup>
+                      <FormGroup row="true">
                         <FormControlLabel
                           control={
                             <Checkbox checked={Vegetarian} onChange={this.handleCheck('Vegetarian')} value="Vegetarian" />
@@ -182,7 +146,7 @@ log() {
                       </FormGroup>
                     </FormControl>
                   </div>
-                  <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.action(this.state.childName)}>
+                  <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.processForm(this.state)}>
                       Continue
                   </Button>
                 </div>

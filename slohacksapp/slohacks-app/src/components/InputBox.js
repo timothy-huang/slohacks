@@ -52,7 +52,7 @@ class InputBox extends Component {
         arrow = <KeyboardArrowDown style={{color: 'black'}} onClick={this.handleExpanded()}/>
       }
         return (
-          <div>
+          <div className="boxWrapper">
             <div className="row mystyle" id="r">
               {this.props.question}
               {arrow}

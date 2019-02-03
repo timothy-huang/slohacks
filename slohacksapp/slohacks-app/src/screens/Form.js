@@ -13,7 +13,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 import '../styles/Form.css';
 import kiwi from '../assets/img/kiwi.png';
-import mango from '../assets/img/mang.png';
+import mango from '../assets/img/mango.png';
 import pomegranate from '../assets/img/pomegranate.png';
 import coconut from '../assets/img/coconut.png';
 

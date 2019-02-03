@@ -60,7 +60,7 @@ class Recommendation extends Component {
         let heightft = parseFloat(height.slice(0,1));
         let heightin = parseFloat(height.slice(3, -2));
         let weight = parseFloat(this.props.list['weight']);
-        let activityLevel = parseInt(this.props.list['activityLevel']);
+        let activityLevel = this.props.list['activityLevel'];
         this.setState({activityLevel: activityLevel})
         let gender = this.props.list['weight'];
         let s;
@@ -76,19 +76,19 @@ class Recommendation extends Component {
         let activityCoeff;
 
         switch (activityLevel) {
-            case 1:
+            case '1':
             activityCoeff = 1.2;
             break;
-            case 2:
+            case '2':
             activityCoeff = 1.375;
             break;
-            case 3:
+            case '3':
             activityCoeff = 1.55;
             break;
-            case 4:
+            case '4':
             activityCoeff = 1.725;
             break;
-            case 5:
+            case '5':
             activityCoeff = 1.9;
             break;
         }
@@ -145,13 +145,13 @@ class Recommendation extends Component {
                     <div class="slider">
                     <p className="Text sliderText">{this.state.weightPerWeek} lbs</p>
                     <Slider
-                            value={this.state.weightPerWeek}
-                            aria-labelledby="label"
-                            onChange={this.handleChangeWeightPerWeek}
-                            min={0}
-                            max={2}
-                            step={0.1}
-                            />
+                        value={this.state.weightPerWeek}
+                        aria-labelledby="label"
+                        onChange={this.handleChangeWeightPerWeek}
+                        min={0}
+                        max={2}
+                        step={0.1}
+                        />
                     <div className="sliderLabels">
                     <p>0 lbs</p><p>2 lbs</p></div>
                     </div>

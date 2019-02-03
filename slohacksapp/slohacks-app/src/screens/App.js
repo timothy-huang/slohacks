@@ -80,13 +80,13 @@ class App extends Component {
       case '2':
       protPerc = 0.75;
       break;
-      case 3:
+      case '3':
       protPerc = 0.9;
       break;
-      case 4:
+      case '4':
       protPerc = 0.9;
       break;
-      case 5:
+      case '5':
       protPerc = 1.0
       break;
     };

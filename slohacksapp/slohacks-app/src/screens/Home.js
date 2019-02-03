@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { Route , withRouter} from 'react-router-dom';
 
 import '../styles/Home.css';
 
@@ -8,16 +9,15 @@ class Home extends Component {
     state = {
         childName: ''
     }
-    
+
     handleChange = childName => event => {
         this.setState({
           [childName]: event.target.value,
         });
     };
 
+
     render() {
-
-
         return (
             <div className="container">
                 <p className="open-prompt">Nice to meet you.</p>

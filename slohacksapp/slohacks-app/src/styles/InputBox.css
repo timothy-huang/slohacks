@@ -1,0 +1,28 @@
+#standard-name {
+  font-size: 24px;
+}
+
+#info-btn {
+  left: 70%;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  font-size: 24px;
+}
+
+.description {
+  margin-left: 5px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  padding: 8px;
+  width: 95%;
+  font-size: 16px;
+  background-color: #F1F2E6
+}

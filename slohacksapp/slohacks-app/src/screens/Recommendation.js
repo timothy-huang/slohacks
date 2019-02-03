@@ -117,6 +117,7 @@ class Recommendation extends Component {
 
     render() {
         return (
+<<<<<<< HEAD
             <div id="main">
                 <p className="Text question"> How much weight do you want to gain or lose in total?</p>
                 <div class="slider">
@@ -153,6 +154,10 @@ class Recommendation extends Component {
                 Calculate my Nutrition Plan
                 </Button>
             </div>
+=======
+            <h2>Recommendation</h2>
+
+>>>>>>> d57372525e999680e4d05459db77ba00002c85fc
         );
     }
 }

@@ -30,7 +30,7 @@ class Home extends Component {
                         className="textfield"
                         value={this.state.childName}
                         onChange={this.handleChange('childName')}
-                        style={{ width: '400px', textAlign: 'center' }}
+                        style={{ width: '70%', textAlign: 'center' }}
                     />
                 </form>
                 <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.action(this.state.childName)}>

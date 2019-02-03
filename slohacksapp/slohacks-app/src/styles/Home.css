@@ -31,7 +31,7 @@ p {
 
 .name-input {
   margin-top: 20px;
-  width: 63%;
+  width: 50%;
   color: #304503;
   text-align: center;
 }
@@ -57,14 +57,14 @@ p {
   position: absolute;
   z-index: -1;
   left: -100px;
-  bottom: -100px;
+  bottom: -120px;
 }
 
 .broccoli {
-  width: 600px;
-  transform: rotate(275deg);
+  width: 640px;
+  transform: rotate(267deg);
   position: absolute;
   z-index: -1;
-  top: -180px;
-  right: -270px;
+  top: -130px;
+  right: -190px;
 }

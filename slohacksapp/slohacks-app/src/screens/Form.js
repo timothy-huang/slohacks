@@ -19,44 +19,40 @@ import coconut from '../assets/img/coconut.png';
 
 class Form extends Component {
 
-  state = {
-      childAge: '',
-      childHeight: '',
-      childWeight: '',
-      childGender: '',
-      childActivityLevel: '',
-      Vegetarian: false,
-      Vegan: false,
-      NutFree: false,
-      GlutenFree: false,
-      DairyFree: false
-  }
+    state = {
+        childAge: '',
+        childHeight: '',
+        childWeight: '',
+        childGender: '',
+        childActivityLevel: '',
+        Vegetarian: false,
+        Vegan: false,
+        NutFree: false,
+        GlutenFree: false,
+        DairyFree: false
+    }
 
-  handleChange = childName => event => {
-      this.setState({
-        [childName]: event.target.value,
-      });
-  };
+    handleChange = childName => event => {
+        this.setState({
+          [childName]: event.target.value,
+        });
+    };
 
-  handleCheck = name => event => {
-    this.setState({ [name]: event.target.checked });
-  };
+    handleCheck = name => event => {
+      this.setState({ [name]: event.target.checked });
+    };
 
-  handleChangeAge = e => this.setState({childAge: e.target.value});
-
-  handleChangeHeight = e => this.setState({childHeight: e.target.value});
-
-  handleChangeWeight = e => this.setState({childWeight: e.target.value});
-
-  handleChangeGender = e => this.setState({childGender: e.target.value});
-
-  handleChangeActivityLevel = e => this.setState({childActivityLevel: e.target.value});
-
-  trimName(name) {
-    var n = name.split(" ")
-    console.log(n[0])
-    return n[0]
-  }
+    handleChangeAge = e => this.setState({childAge: e.target.value});
+    handleChangeHeight = e => this.setState({childHeight: e.target.value});
+    handleChangeWeight = e => this.setState({childWeight: e.target.value});
+    handleChangeGender = e => this.setState({childGender: e.target.value});
+    handleChangeActivityLevel = e => this.setState({childActivityLevel: e.target.value});
+    
+    trimName(name) {
+      var n = name.split(" ")
+      console.log(n[0])
+      return n[0]
+    }
 
     render() {
       const { classes } = this.props;

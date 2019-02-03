@@ -1,3 +1,4 @@
+
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
@@ -32,31 +33,11 @@ const styles = theme => ({
   },
 });
 
-const currencies = [
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'BTC',
-    label: '฿',
-  },
-  {
-    value: 'JPY',
-    label: '¥',
-  },
-];
-
 class App extends React.Component {
   state = {
     name: '',
     age: '',
-    multiline: 'Controlled',
-    currency: 'EUR',
+    multiline: 'Controlled'
   };
 
   handleChange = name => event => {
@@ -91,9 +72,7 @@ class App extends React.Component {
     );
   }
 }
-
 App.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
 export default withStyles(styles)(App);

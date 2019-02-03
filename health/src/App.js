@@ -8,6 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 const styles = theme => ({
   button: {
@@ -40,6 +41,10 @@ class App extends React.Component {
     multiline: 'Controlled'
   };
 
+  showAlert(name) {
+    alert(name)
+  }
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
@@ -63,7 +68,7 @@ class App extends React.Component {
               margin="normal"
             />
           </form>
-          <Button variant="contained" color="primary" id="name-submit-button">
+          <Button type="submit" variant="contained" color="primary" id="name-submit-button" onClick={() => this.showAlert(this.state.name)}>
             Continue
           </Button>
         </header>

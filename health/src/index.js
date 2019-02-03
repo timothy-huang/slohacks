@@ -15,7 +15,7 @@ import Notfound from "./notfound";
 const routing = (
   <Router>
     <div>
-      <ul>
+      {/* <ul>
         <li>
           <NavLink exact actvieClassName="active" to="/">
             Home
@@ -32,7 +32,7 @@ const routing = (
           </NavLink>
         </li>
       </ul>
-      <hr />
+      <hr /> */}
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/users" component={Users} />

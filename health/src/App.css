@@ -6,6 +6,7 @@
   /* animation: App-logo-spin infinite 5s linear; */
   color: #304503;
   font-size: 32px;
+  text-align: center;
 
 }
 
@@ -28,6 +29,7 @@ body {
   float: left;
   background-color: #FCFCF7;
   padding: 16px;
+  text-align: center;
 }
 
 p {

@@ -17,10 +17,6 @@ class Form extends Component {
 
   state = {
       childAge: '',
-      childHeight: '',
-      childWeight: '',
-      childGender: '',
-      childActivityLevel: '',
       Vegetarian: false,
       Vegan: false,
       NutFree: false,
@@ -38,21 +34,20 @@ class Form extends Component {
     this.setState({ [name]: event.target.checked });
   };
 
-  handleChangeAge = e => this.setState({childAge: e.target.value});
+trimName(name) {
+  var n = name.split(" ")
+  console.log(n[0])
+  return n[0]
+}
 
-  handleChangeHeight = e => this.setState({childHeight: e.target.value});
+transition() {
+  var element = document.querySelector('InputBox')
+  console.log(element)
+}
 
-  handleChangeWeight = e => this.setState({childWeight: e.target.value});
-
-  handleChangeGender = e => this.setState({childGender: e.target.value});
-
-  handleChangeActivityLevel = e => this.setState({childActivityLevel: e.target.value});
-
-  trimName(name) {
-    var n = name.split(" ")
-    console.log(n[0])
-    return n[0]
-  }
+log() {
+  console.log('fired')
+}
 
     render() {
       const { classes } = this.props;
@@ -60,11 +55,11 @@ class Form extends Component {
         return (
             <div id="wrapper">
                 <div id="container">
-                  <div className="greeting">Hi {this.trimName(this.props.name)}!</div>
-                  <InputBox question="How old are you?" description="Age allows to estimate your body’s growth. A 12 year old child would have a different body composition from 40 year old adult." value={this.state.childAge} onChangeValue={this.handleChangeAge}/>
-                  <InputBox question="How tall are you? (5 ft 3 in = 5' 3&quot;)" description="Height and weight allows us to estimate your body composition. " value={this.state.childHeight} onChangeValue={this.handleChangeHeight}/>
-                  <InputBox question="How much do you weigh? (lbs)" description="Height and weight allows us to estimate your body composition.  " value={this.state.childWeight} onChangeValue={this.handleChangeWeight}/>
-                  <InputBox question="Male, Female, Non-Binary?" description="Male and female bodies have different nutritional requirements." value={this.state.childGender} onChangeValue={this.handleChangeGender}/>
+                  <h1 style={{color: '#304503'}}>Hi {this.trimName(this.props.name)}!</h1>
+                  <InputBox question="How old are you?" description="Age allows to estimate your body’s growth. A 12 year old child would have a different body composition from 40 year old adult."/>
+                  <InputBox question="How tall are you?" description="Height and weight allows us to estimate your body composition. "/>
+                  <InputBox question="How much do you weigh?" description="Height and weight allows us to estimate your body composition.  "/>
+                  <InputBox question="Male, Female, Non-Binary?" description="Male and female bodies have different nutritional requirements."/>
 
                   <div id="gender-btns">
                     <Button variant="outlined" color="primary" id="gender-btn" active>
@@ -78,7 +73,7 @@ class Form extends Component {
                     </Button>
                   </div>
 
-                  <InputBox question="What is your activity level?" description="The users activity level will allow us to create the best personalized plan for you. 1. No activity level 2. Light activity level (light walking) 3. Average (fitness of any kind at least 3x a week) 4. Very Active (fitness at least 5x a week and active lifestyle) 5. Athlete" value={this.state.childActivityLevel} onChangeValue={this.handleChangeActivityLevel}/>
+                  <InputBox question="What is your activity level?" description="The users activity level will allow us to create the best personalized plan for you. 1. No activity level 2. Light activity level (light walking) 3. Average (fitness of any kind at least 3x a week) 4. Very Active (fitness at least 5x a week and active lifestyle) 5. Athlete"/>
 
                   <div id="gender-btns">
                     <Button variant="outlined" id="gender-btn" >
@@ -98,13 +93,13 @@ class Form extends Component {
                     </Button>
                   </div>
 
-                  <div style={{marginTop: 24}}>
+                  <div>
                     Any dietary restrictions?
                   </div>
 
                   <div>
                     <FormControl component="fieldset">
-                      <FormGroup row='true'>
+                      <FormGroup>
                         <FormControlLabel
                           control={
                             <Checkbox checked={Vegetarian} onChange={this.handleCheck('Vegetarian')} value="Vegetarian" />
@@ -113,7 +108,7 @@ class Form extends Component {
                         />
                         <FormControlLabel
                           control={
-                            <Checkbox checked={Vegan} onChange={this.handleCheck('Vegan')} value="Vegan"/>
+                            <Checkbox checked={Vegan} onChange={this.handleCheck('Vegan')} value="Vegan" />
                           }
                           label="Vegan"
                         />
@@ -142,7 +137,7 @@ class Form extends Component {
                       </FormGroup>
                     </FormControl>
                   </div>
-                  <Button variant="contained" color="primary"     id="name-submit-button" onClick={() => this.props.processForm(this.state)}>
+                  <Button variant="contained" color="primary" id="name-submit-button" onClick={() => this.props.action(this.state.childName)}>
                       Continue
                   </Button>
                 </div>

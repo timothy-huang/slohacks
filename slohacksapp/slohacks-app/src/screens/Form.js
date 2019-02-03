@@ -17,6 +17,10 @@ class Form extends Component {
 
   state = {
       childAge: '',
+      childHeight: '',
+      childWeight: '',
+      childGender: '',
+      childActivityLevel: '',
       Vegetarian: false,
       Vegan: false,
       NutFree: false,
@@ -34,11 +38,21 @@ class Form extends Component {
     this.setState({ [name]: event.target.checked });
   };
 
-trimName(name) {
-  var n = name.split(" ")
-  console.log(n[0])
-  return n[0]
-}
+  handleChangeAge = e => this.setState({childAge: e.target.value});
+
+  handleChangeHeight = e => this.setState({childHeight: e.target.value});
+
+  handleChangeWeight = e => this.setState({childWeight: e.target.value});
+
+  handleChangeGender = e => this.setState({childGender: e.target.value});
+
+  handleChangeActivityLevel = e => this.setState({childActivityLevel: e.target.value});
+
+  trimName(name) {
+    var n = name.split(" ")
+    console.log(n[0])
+    return n[0]
+  }
 
     render() {
       const { classes } = this.props;
@@ -46,11 +60,11 @@ trimName(name) {
         return (
             <div id="wrapper">
                 <div id="container">
-                  <h1>Hi {this.trimName(this.props.name)}!</h1>
-                  <InputBox question="How old are you?" description="Age allows to estimate your body’s growth. A 12 year old child would have a different body composition from 40 year old adult."/>
-                  <InputBox question="How tall are you?" description="Height and weight allows us to estimate your body composition. "/>
-                  <InputBox question="How much do you weigh?" description="Height and weight allows us to estimate your body composition.  "/>
-                  <InputBox question="Male, Female, Non-Binary?" description="Male and female bodies have different nutritional requirements."/>
+                  <div className="greeting">Hi {this.trimName(this.props.name)}!</div>
+                  <InputBox question="How old are you?" description="Age allows to estimate your body’s growth. A 12 year old child would have a different body composition from 40 year old adult." value={this.state.childAge} onChangeValue={this.handleChangeAge}/>
+                  <InputBox question="How tall are you? (5 ft 3 in = 5' 3&quot;)" description="Height and weight allows us to estimate your body composition. " value={this.state.childHeight} onChangeValue={this.handleChangeHeight}/>
+                  <InputBox question="How much do you weigh? (lbs)" description="Height and weight allows us to estimate your body composition.  " value={this.state.childWeight} onChangeValue={this.handleChangeWeight}/>
+                  <InputBox question="Male, Female, Non-Binary?" description="Male and female bodies have different nutritional requirements." value={this.state.childGender} onChangeValue={this.handleChangeGender}/>
 
                   <div id="gender-btns">
                     <Button variant="outlined" color="primary" id="gender-btn" active>
@@ -64,7 +78,7 @@ trimName(name) {
                     </Button>
                   </div>
 
-                  <InputBox question="What is your activity level?" description="The users activity level will allow us to create the best personalized plan for you. 1. No activity level 2. Light activity level (light walking) 3. Average (fitness of any kind at least 3x a week) 4. Very Active (fitness at least 5x a week and active lifestyle) 5. Athlete"/>
+                  <InputBox question="What is your activity level?" description="The users activity level will allow us to create the best personalized plan for you. 1. No activity level 2. Light activity level (light walking) 3. Average (fitness of any kind at least 3x a week) 4. Very Active (fitness at least 5x a week and active lifestyle) 5. Athlete" value={this.state.childActivityLevel} onChangeValue={this.handleChangeActivityLevel}/>
 
                   <div id="gender-btns">
                     <Button variant="outlined" id="gender-btn" >
@@ -84,13 +98,13 @@ trimName(name) {
                     </Button>
                   </div>
 
-                  <div>
+                  <div style={{marginTop: 24}}>
                     Any dietary restrictions?
                   </div>
 
                   <div>
                     <FormControl component="fieldset">
-                      <FormGroup>
+                      <FormGroup row='true'>
                         <FormControlLabel
                           control={
                             <Checkbox checked={Vegetarian} onChange={this.handleCheck('Vegetarian')} value="Vegetarian" />
@@ -99,7 +113,7 @@ trimName(name) {
                         />
                         <FormControlLabel
                           control={
-                            <Checkbox checked={Vegan} onChange={this.handleCheck('Vegan')} value="Vegan" />
+                            <Checkbox checked={Vegan} onChange={this.handleCheck('Vegan')} value="Vegan"/>
                           }
                           label="Vegan"
                         />
@@ -128,6 +142,9 @@ trimName(name) {
                       </FormGroup>
                     </FormControl>
                   </div>
+                  <Button variant="contained" color="primary"     id="name-submit-button" onClick={() => this.props.processForm(this.state)}>
+                      Continue
+                  </Button>
                 </div>
             </div>
         );

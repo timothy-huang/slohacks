@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
 
     this.nameHandler = this.nameHandler.bind(this);
+    this.processForm = this.processForm.bind(this);
 
     this.state = {
       name: 'friend',
@@ -34,6 +35,21 @@ class App extends Component {
     };
   }
 
+  processForm(input) {
+
+    this.setState({
+      age: input.childAge,
+      gender: input.childGender,
+      weight: input.childWeight,
+      activityLevel: input.childActivityLevel,
+      vegetarian: input.Vegetarian,
+      vegan: input.Vegan,
+      nut: input.NutFree,
+      gluten: input.GlutenFree,
+      dairy: input.DairyFree
+    });
+  }
+
   nameHandler(input) {
     if (input != '') {
       this.setState({
@@ -55,14 +71,13 @@ class App extends Component {
             <li><Link to="/MacronutrientDetails">MacronutrientDetails</Link></li>
         </ul> */}
 
-
         <Route
           exact path="/"
           render={() => <Home action={this.nameHandler} />}
         />
         <Route
           path="/Form"
-          render={() => <Form name={this.state.name} />}
+          render={() => <Form name={this.state.name} processForm={this.processForm}/>}
         />
         <Route
           path="/Recommendation"

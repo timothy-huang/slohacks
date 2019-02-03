@@ -1,7 +1,10 @@
 
 
-h1 {
-  text-align: center;
+.greeting {
+  font-size: 72px;
+  color: #304503;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 #gender-btns {
@@ -31,4 +34,8 @@ h1 {
 
 .button:focus {
   color: 'white'
+}
+
+#checkBoxesWrapper {
+  font-size: 24px;
 }

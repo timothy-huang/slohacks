@@ -44,7 +44,7 @@ trimName(name) {
       const { classes } = this.props;
       const { Vegetarian, Vegan, NutFree, GlutenFree, DairyFree } = this.state;
         return (
-            <div>
+            <div id="fullform">
                 <h1>Hi {this.trimName(this.props.name)}!</h1>
                 <InputBox question="How old are you?" description="this is for your own good"/>
                 <InputBox question="How tall are you?" description="i mean that"/>
@@ -54,14 +54,14 @@ trimName(name) {
                   Male, Female, Non-Binary?
                 </div>
 
-                <div>
-                  <Button variant="outlined" color="primary">
+                <div id="gender-btns">
+                  <Button variant="outlined" color="primary" id="gender-btn">
                     M
                   </Button>
-                  <Button variant="outlined" color="secondary">
+                  <Button variant="outlined" color="secondary" id="gender-btn">
                     F
                   </Button>
-                  <Button variant="outlined">
+                  <Button variant="outlined" id="gender-btn">
                     N
                   </Button>
                 </div>
@@ -70,23 +70,28 @@ trimName(name) {
                   What is your activity level?
                 </div>
 
-                <div>
-                  <Button variant="outlined">
+                <div id="gender-btns">
+                  <Button variant="outlined" id="gender-btn">
                     1
                   </Button>
-                  <Button variant="outlined">
+                  <Button variant="outlined" id="gender-btn">
                     2
                   </Button>
-                  <Button variant="outlined">
+                  <Button variant="outlined" id="gender-btn">
                     3
                   </Button>
-                  <Button variant="outlined">
+                  <Button variant="outlined" id="gender-btn">
                     4
                   </Button>
-                  <Button variant="outlined">
+                  <Button variant="outlined" id="gender-btn">
                     5
                   </Button>
                 </div>
+
+                <div>
+                  Any dietary restrictions?
+                </div>
+
                 <div>
                   <FormControl component="fieldset">
                     <FormGroup>

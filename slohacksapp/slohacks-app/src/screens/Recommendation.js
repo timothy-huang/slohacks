@@ -4,6 +4,7 @@ class Recommendation extends Component {
     render() {
         return (
             <h2>Recommendation</h2>
+
         );
     }
 }

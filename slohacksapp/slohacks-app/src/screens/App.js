@@ -40,7 +40,8 @@ class App extends Component {
         name: input
       });
     }
-    this.props.history.push('/Form'); 
+    this.props.history.push('/Form');
+    console.log(this.state)
   }
 
   render() {
@@ -54,16 +55,19 @@ class App extends Component {
             <li><Link to="/MacronutrientDetails">MacronutrientDetails</Link></li>
         </ul>
 
-        
-        <Route 
-          exact path="/" 
-          render={(props) => <Home {...props} action={this.nameHandler} />}
+
+        <Route
+          exact path="/"
+          render={() => <Home action={this.nameHandler} />}
         />
-        <Route 
-          path="/Form" 
+        <Route
+          path="/Form"
           render={() => <Form name={this.state.name} />}
         />
-        <Route path="/Recommendation" component={Recommendation} />
+        <Route
+          path="/Recommendation"
+          render={() => <Recommendation list={this.state} />}
+        />
         <Route path="/MacronutrientDetails" component={MacronutrientDetails} />
       </div>
     );

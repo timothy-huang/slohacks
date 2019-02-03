@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextField, Button, Input } from '@material-ui/core';
+import { Button, Input } from '@material-ui/core';
 
 import '../styles/Home.css';
 
@@ -12,6 +12,12 @@ class Home extends Component {
         childName: ''
     }
 
+    _handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            this.props.action(this.state.childName);
+        }
+    }
+
     handleChange = childName => event => {
         this.setState({
           [childName]: event.target.value,
@@ -20,7 +26,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container" onKeyPress={this._handleKeyPress}>
                 <img src={tomato} alt="Tomato" className="tomato"/>;
                 <img src={broccoli} alt="Broccoli" className="broccoli"/>;
                 <p className="open-prompt">Nice to meet you.</p>

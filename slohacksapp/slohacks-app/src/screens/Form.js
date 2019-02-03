@@ -31,6 +31,13 @@ class Form extends Component {
         DairyFree: false
     }
 
+    _handleKeyPress = (e) => {
+      if (e.key === 'Enter') {
+          console.log("pressed enter")
+          this.props.action(this.state.childName);
+      }
+    }
+
     handleChange = childName => event => {
         this.setState({
           [childName]: event.target.value,
@@ -57,7 +64,7 @@ class Form extends Component {
       const { classes } = this.props;
       const { Vegetarian, Vegan, NutFree, GlutenFree, DairyFree } = this.state;
         return (
-            <div id="wrapper">
+            <div id="wrapper" onKeyPress={this._handleKeyPress}>
                 <img src={kiwi} alt="Kiwi" className="kiwi"/>;
                 <img src={mango} alt="Mango" className="mango"/>;
                 <img src={pomegranate} alt="Pomegranate" className="pomegranate"/> 

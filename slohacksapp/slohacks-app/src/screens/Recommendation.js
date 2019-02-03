@@ -5,26 +5,21 @@ import '../styles/Recommendation.css'
 import Button from '@material-ui/core/Button';
 
 class Recommendation extends Component {
-
     constructor(props) {
         super(props);
         console.log(this.props.list)
+
         this.state = {
             totalWeight: 0,
             weightPerWeek: 1,
             expectedDate: new Date(),
             displayDate: this.dateProcessing(new Date()),
             gainLose: "gain",
-
-            // age: this.props.list['age'],
-            // gender: this.props.list['gender'],
-            // heightft: this.props.list['heightft'],
-            // heightin: this.props.list['heightin'],
-            // weight: this.props.list['weight'],
-            // activityLevel: this.props.list['activityLevel'],
-            // target:this.props.list["target"],
-            finalCalories: this.computeCalories()
+            activityLevel: '',
+            finalCalories: 0
         };
+
+        this.computeCalories = this.computeCalories.bind(this);
     }
 
     dateProcessing = (date) => {
@@ -60,10 +55,12 @@ class Recommendation extends Component {
         let heightft = parseFloat(height.slice(0,1));
         let heightin = parseFloat(height.slice(3, -2));
         let weight = parseFloat(this.props.list['weight']);
-        let activityLevel = this.props.list['activityLevel'];
-        this.setState({activityLevel: activityLevel})
         let gender = this.props.list['weight'];
         let s;
+        console.log(this.props.list['activityLevel'])
+        this.setState({
+            activityLevel: this.props.list['activityLevel']
+        })
 
         if (gender === 'M') {
             s = 5;
@@ -73,9 +70,9 @@ class Recommendation extends Component {
 
         let brm = 10 * (weight / 2.205) + 6.25 * 2.54 * (heightft * 12 + heightin) - 5 * age + s;
 
-        let activityCoeff;
+        let activityCoeff = 1.55;
 
-        switch (activityLevel) {
+        switch (this.state.activityLevel) {
             case '1':
             activityCoeff = 1.2;
             break;
@@ -150,13 +147,13 @@ class Recommendation extends Component {
                     <div class="slider">
                     <p className="Text sliderText">{this.state.weightPerWeek} lbs</p>
                     <Slider
-                            value={this.state.weightPerWeek}
-                            aria-labelledby="label"
-                            onChange={this.handleChangeWeightPerWeek}
-                            min={0}
-                            max={2}
-                            step={0.1}
-                            />
+                        value={this.state.weightPerWeek}
+                        aria-labelledby="label"
+                        onChange={this.handleChangeWeightPerWeek}
+                        min={0}
+                        max={2}
+                        step={0.1}
+                        />
                     <div className="sliderLabels">
                     <p>0 lbs</p><p>2 lbs</p></div>
                     </div>

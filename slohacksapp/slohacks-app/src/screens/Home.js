@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import { Button, Input } from '@material-ui/core';
+import { fadeInUp, fadeIn } from 'react-animations'
+import Radium, {StyleRoot} from 'radium';
 
 import '../styles/Home.css';
 
 import tomato from '../assets/img/tomato.png';
 import broccoli from '../assets/img/broccoli.png';
 
+const styles = {
+    fadeInUp: {
+        animation: 'x 2s forwards',
+        animationName: Radium.keyframes(fadeInUp, 'fadeInUp')
+    },
+    fadeIn: {
+        animation: 'x 1s forwards',
+        animationDelay: '2s',
+        animationName: Radium.keyframes(fadeIn, 'fadeIn')
+    }
+}
 
 class Home extends Component {
     state = {
@@ -29,8 +42,11 @@ class Home extends Component {
             <div className="container" onKeyPress={this._handleKeyPress}>
                 <img src={tomato} alt="Tomato" className="tomato"/>;
                 <img src={broccoli} alt="Broccoli" className="broccoli"/>;
-                <p className="open-prompt">Nice to meet you.</p>
-                <p className="open-prompt">What's your name?</p>
+                <StyleRoot>
+                    <p className="open-prompt" style={styles.fadeInUp}>Nice to meet you.</p>
+                    <p className="open-prompt" style={styles.fadeIn}>What's your name?</p>
+                </StyleRoot>
+                
                 <form className="name-input" noValidate autoComplete="off">
                     <Input
                         className="textfield"

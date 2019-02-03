@@ -9,10 +9,9 @@ body {
 }
 
 .open-prompt {
-  /* animation: App-logo-spin infinite 5s linear; */
   color: #304503;
   font-size: 32px;
-
+  opacity: 0;
 }
 
 .container {
@@ -40,15 +39,6 @@ p {
   font-size: 24px;
   margin-top: 48px;
   background-color: #304503;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .tomato {

@@ -123,7 +123,7 @@ class Recommendation extends Component {
         return (
             <div id="recommendationWrapper">
                 <div id="main">
-                    <p className="Text question"> How much weight do you want to gain or lose in total? {this.props.list['weight']}</p>
+                    <p className="Text question"> How much weight do you want to gain or lose in total?</p>
                     <div class="slider">
                     <p className="Text sliderText">{this.state.totalWeight} lbs</p>
                     <Slider
